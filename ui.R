@@ -1,9 +1,15 @@
-# ui.R
+# UI for scatterplot
+
+# Create a shinyUI with a fluidPage layout
 shinyUI(fluidPage(
-  mainPanel(
-    # Add a selectInput (with a proper id) that allows you to select a variable to map
-    
-    # Use plotlyOutput to show your map
-    plotlyOutput('map')
-  )
+  
+  # Add a numbericInput to choose the number of observations
+  
+  
+  # Add a selectInput that allows you to select a color from a list of choices
+  
+  
+  # Plot the output with the name "scatter"
+  
+  
 ))

@@ -1,23 +1,14 @@
-# server.R
-library(dplyr)
+### Exercise 2 ###
 
-# Read in data
-setwd('~/Documents/info-201/m14-shiny/exercise-3/')
-source('./scripts/buildMap.R')
-df <- read.csv('./data/electoral_college.csv', stringsAsFactors = FALSE)
-state.codes <- read.csv('./data/state_codes.csv', stringsAsFactors = FALSE)
+library(shiny)
 
-# Join together state.codes and df
-joined.data <- left_join(df, state.codes, by="state")
+# We'll look into these more next week: http://shiny.rstudio.com/gallery/widget-gallery.html 
 
-# Compute the electoral votes per 100K people in each state
-joined.data <- joined.data %>% mutate(ratio = votes/population * 100000)
+# Create a shiny server that creates a scatterplot. 
 
-# Start shinyServer
-shinyServer(function(input, output) { 
+# It should takes as an input the number of observations, and a color
+# It should return a rendered plot
+shinyServer(function(input, output) {
+  # Save a 'scatter' property which is a renderPlot object (that renders a scatterplot)
   
-  # Render a plotly object that returns your map
-  output$map <- renderPlotly({ 
-      return(BuildMap(joined.data, 'population'))
-  })
 })
